@@ -45,7 +45,13 @@ The PID controller was manually tuned to accommodate the physical constraints of
   * Final Stable Level ($PV$): **51%**
 
 ---
+---
+## 📺 System Demonstration (Video)
+Click the image below to watch the full system operation (Digital Twin + PLC + SCADA Integration):
 
+[![Watch the video](https://img.shields.io/badge/🎥_Watch_Video-Project_Demo-blue?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1cnnt3jwVg3fsus2xE2UFIwAklyTGS_nF/view?usp=sharing)
+
+---
 ## 🗂️ Project Structure
 
 ```text
