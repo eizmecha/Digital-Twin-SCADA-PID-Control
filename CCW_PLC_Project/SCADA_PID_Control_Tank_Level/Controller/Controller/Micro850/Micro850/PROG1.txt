@@ -1,0 +1,216 @@
+(****** QuickLD compiler *******************************)
+(****** Copyright Rockwell Automation Canada, Ltd ******)
+(****** ST *********************************************)
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,1
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB1 := BOOL_IN_0 ;
+__EDTB2 := SCADA_START_PB ;
+__EDTB3 := (__EDTB1 OR __EDTB2) ;
+IF __EDTB3 THEN
+(*Set coil*)
+BOOL_OUT_0 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0001 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,4
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB4 := BOOL_IN_1 ;
+__EDTB5 := SCADA_RESET_PB ;
+__EDTB6 := (__EDTB4 OR __EDTB5) ;
+IF __EDTB6 THEN
+(*Reset coil*)
+BOOL_OUT_0 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0002 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,7
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB7 := TRUE ;
+IF __EDTB7 THEN
+NORMALIZED_LEVEL := (FLOAT_IN_0 / 10.0) ;
+END_IF ;
+__MO_DIV_1 := __EDTB7 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0003 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,11
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB8 := TRUE ;
+IF __EDTB8 THEN
+SCALED_LEVEL_REAL := (NORMALIZED_LEVEL * 100.0) ;
+END_IF ;
+__MO_MULT_1 := __EDTB8 ;
+__EDTB9 := __EDTB8 ;
+IF __EDTB9 THEN
+INT_OUT_1 := ANY_TO_DINT(SCALED_LEVEL_REAL) ;
+END_IF ;
+__MO_ANY_TO_DINT_1 := __EDTB9 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0004 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,15
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB10 := TRUE ;
+IF __EDTB10 THEN
+NORMALIZED_POTENTIO := (FLOAT_IN_1 / 10.0) ;
+END_IF ;
+__MO_DIV_2 := __EDTB10 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0005 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,19
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB11 := TRUE ;
+IF __EDTB11 THEN
+TARGET_SETPOINT_REAL := (NORMALIZED_POTENTIO * 100.0) ;
+END_IF ;
+__MO_MULT_2 := __EDTB11 ;
+__EDTB12 := __EDTB11 ;
+IF __EDTB12 THEN
+INT_OUT_0 := ANY_TO_DINT(TARGET_SETPOINT_REAL) ;
+END_IF ;
+__MO_ANY_TO_DINT_2 := __EDTB12 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0006 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,23
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB13 := NOT(SCADA_REMOTE_MODE) ;
+IF __EDTB13 THEN
+ACTIVE_SP_REAL := (  TARGET_SETPOINT_REAL) ;
+END_IF ;
+__MO_1GAIN_1 := __EDTB13 ;
+__EDTB14 := __EDTB13 ;
+__EDTB15 := SCADA_REMOTE_MODE ;
+IF __EDTB15 THEN
+ACTIVE_SP_REAL := (  SCADA_SETPOINT_REAL) ;
+END_IF ;
+__MO_1GAIN_2 := __EDTB15 ;
+__EDTB16 := __EDTB15 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0007 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,28
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+(* FB call: PID *)
+PID_1(BOOL_OUT_0, SCALED_LEVEL_REAL, ACTIVE_SP_REAL, TRUE, 0.0, 100.0, 0.0, MY_PID_GAINS, FALSE, ) ;
+FLOAT_OUT_0 := PID_1.CV ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0008 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,39
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB17 := BOOL_IN_1 ;
+__EDTB18 := SCADA_RESET_PB ;
+__EDTB19 := (__EDTB17 OR __EDTB18) ;
+IF __EDTB19 THEN
+FLOAT_OUT_1 := ANY_TO_REAL(10.0) ;
+END_IF ;
+__MO_ANY_TO_REAL_1 := __EDTB19 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG0009 ;
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,42
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB20 := BOOL_IN_0 ;
+__EDTB21 := SCADA_START_PB ;
+__EDTB22 := (__EDTB20 OR __EDTB21) ;
+IF __EDTB22 THEN
+FLOAT_OUT_1 := ANY_TO_REAL(0.0) ;
+END_IF ;
+__MO_ANY_TO_REAL_2 := __EDTB22 ;
+
+(*************** Code for the end of Rung **************)
+__GL __LG000A ;
+
+
+(*************** Code for the end of File **************)
+__GL __LG0000 ;
+
+
+
+(*************** Local Symbols table *******************)
+(* __EDTB1 *)
+(* __EDTB2 *)
+(* __EDTB3 *)
+(* __EDTB4 *)
+(* __EDTB5 *)
+(* __EDTB6 *)
+(* __EDTB7 *)
+(* __EDTB8 *)
+(* __EDTB9 *)
+(* __EDTB10 *)
+(* __EDTB11 *)
+(* __EDTB12 *)
+(* __EDTB13 *)
+(* __EDTB14 *)
+(* __EDTB15 *)
+(* __EDTB16 *)
+(* __EDTB17 *)
+(* __EDTB18 *)
+(* __EDTB19 *)
+(* __EDTB20 *)
+(* __EDTB21 *)
+(* __EDTB22 *)
+

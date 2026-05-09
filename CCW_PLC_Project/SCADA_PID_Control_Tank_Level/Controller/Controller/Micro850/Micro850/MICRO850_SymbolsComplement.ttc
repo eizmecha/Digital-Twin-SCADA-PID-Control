@@ -1,0 +1,12 @@
+[BEGIN FB INPUTS]
+I1=micro850.micro850.prog1/pid_1.enable,0x47A,BOOL
+I2=micro850.micro850.prog1/pid_1.pv,0x49C,REAL
+I3=micro850.micro850.prog1/pid_1.sp,0x4AC,REAL
+I4=micro850.micro850.prog1/pid_1.automanual,0x474,BOOL
+I5=micro850.micro850.prog1/pid_1.cvmanual,0x14C4,REAL
+I6=micro850.micro850.prog1/pid_1.cvmax,0x14C8,REAL
+I7=micro850.micro850.prog1/pid_1.cvmin,0x14C4,REAL
+I8=micro850.micro850.prog1/pid_1.gains,0xFFFFFFFF,PID_GAINS
+I9=micro850.micro850.prog1/pid_1.control,0x475,BOOL
+I10=micro850.micro850.prog1/pid_1.linit,0x151B,BOOL
+[END]

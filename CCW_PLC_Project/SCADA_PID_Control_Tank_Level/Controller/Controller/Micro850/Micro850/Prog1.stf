@@ -1,0 +1,89 @@
+PROGRAM Prog1
+#info= QLD
+BOF
+
+
+(**)
+
+SOR  [0,1] (**) (**)  
+ BST  XIC  [1,0] (*BOOL_IN_0*) (*Start_Button*)
+   NXB  XIC  [1,1] (*SCADA_Start_PB*) (**)
+ BND
+  OTS  [2,0] (*BOOL_OUT_0*) (**)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,4] (**) (**)  
+ BST  XIC  [1,0] (*BOOL_IN_1*) (*Reset_Button*)
+   NXB  XIC  [1,1] (*SCADA_Reset_PB*) (**)
+ BND
+  OTR  [2,0] (*BOOL_OUT_0*) (**)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,7] (**) (**)  FB  [1,0] (*/*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*FLOAT_IN_0*) (**)  , (*i2:*)(*10.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Normalized_Level*) (**) )
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,11] (**) (**)  FB  [1,0] (***) (*2*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*Normalized_Level*) (**)  , (*i2:*)(*100.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Scaled_Level_REAL*) (**) )  FB  [4,0] (*ANY_TO_DINT*) (*3*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*Scaled_Level_REAL*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*INT_OUT_1*) (**) )
+EOR [7,0]
+
+
+(**)
+
+SOR  [0,15] (**) (**)  FB  [1,0] (*/*) (*4*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*FLOAT_IN_1*) (**)  , (*i2:*)(*10.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Normalized_Potentio*) (**) )
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,19] (**) (**)  FB  [1,0] (***) (*5*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*Normalized_Potentio*) (**)  , (*i2:*)(*100.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Target_Setpoint_REAL*) (**) )  FB  [4,0] (*ANY_TO_DINT*) (*6*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*Target_Setpoint_REAL*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*INT_OUT_0*) (**) )
+EOR [7,0]
+
+
+(**)
+
+SOR  [0,23] (**) (**)  
+ BST  XIO  [1,0] (*SCADA_Remote_Mode*) (**)  FB  [2,0] (*1 gain*) (*19*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*Target_Setpoint_REAL*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Active_SP_REAL*) (**) )
+   NXB  XIC  [1,2] (*SCADA_Remote_Mode*) (**)  FB  [2,2] (*1 gain*) (*20*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*SCADA_Setpoint_REAL*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*Active_SP_REAL*) (**) )
+ BND
+
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,28] (**) (**)  XIC  [1,0] (*BOOL_OUT_0*) (**)  FB  [2,0] (*PID*) (*PID_1*) ( (*Enable:*)(**) (**)  , (*PV:*)(*Scaled_Level_REAL*) (**)  , (*SP:*)(*Active_SP_REAL*) (**)  , (*AutoManual:*)(*TRUE*) (**)  , (*CVManual:*)(*0.0*) (**)  , (*CVMax:*)(*100.0*) (**)  , (*CVMin:*)(*0.0*) (**)  , (*Gains:*)(*My_PID_Gains*) (**)  , (*Control:*)(*FALSE*) (**)  , (*LInit:*)(**) (**) ; (*Active:*)(**) (**)  , (*CV:*)(*FLOAT_OUT_0*) (**)  , (*AbsoluteError:*)(**) (**)  , (*Error:*)(**) (**)  , (*ErrorID:*)(**) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,39] (**) (**)  
+ BST  XIC  [1,0] (*BOOL_IN_1*) (*Reset_Button*)
+   NXB  XIC  [1,1] (*SCADA_Reset_PB*) (**)
+ BND
+  FB  [2,0] (*ANY_TO_REAL*) (*16*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*10.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*FLOAT_OUT_1*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,42] (**) (**)  
+ BST  XIC  [1,0] (*BOOL_IN_0*) (*Start_Button*)
+   NXB  XIC  [1,1] (*SCADA_Start_PB*) (**)
+ BND
+  FB  [2,0] (*ANY_TO_REAL*) (*17*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*0.0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*FLOAT_OUT_1*) (**) )
+EOR [5,0]
+EOF
+#end_info
+#info= ID_MAX
+NextId=20
+#end_info
+END_PROGRAM
