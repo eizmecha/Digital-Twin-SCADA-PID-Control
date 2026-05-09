@@ -1,0 +1,143 @@
+{
+  "name": "",
+  "tagType": "Provider",
+  "tags": [
+    {
+      "dataType": "Float4",
+      "name": "scada_setpoint_real",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.scada_setpoint_real",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Float4",
+      "name": "float_out_0",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.float_out_0",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Float4",
+      "name": "float_out_1",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.float_out_1",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "scada_reset_pb",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.scada_reset_pb",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Float4",
+      "name": "float_in_0",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.float_in_0",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "String",
+      "name": "Ramp",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDataSim:Ramp",
+      "opcServer": "DATAHUB",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Float4",
+      "name": "float_in_1",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.float_in_1",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "String",
+      "name": "Sine",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDataSim:Sine",
+      "opcServer": "DATAHUB",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "String",
+      "name": "Frequency",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDataSim:Frequency",
+      "opcServer": "DATAHUB",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "scada_start_pb",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.scada_start_pb",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "bool_in_0",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.bool_in_0",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "bool_in_1",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.bool_in_1",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "scada_remote_mode",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.scada_remote_mode",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "readOnly": false,
+      "tagType": "AtomicTag",
+      "valueSource": "opc",
+      "writePermissions": {
+        "securityLevels": [],
+        "type": "AllOf"
+      }
+    },
+    {
+      "dataType": "Boolean",
+      "name": "bool_out_0",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.bool_out_0",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Int4",
+      "name": "int_out_0",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.int_out_0",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "name": "_types_",
+      "tagType": "Folder"
+    },
+    {
+      "dataType": "Int4",
+      "name": "int_out_1",
+      "opcItemPath": "nsu\u003dhttp://www.cogentdatahub.com/DataHub;s\u003dDigital_Twin_SCADA_PID_Control:controller.micro850.micro850.int_out_1",
+      "opcServer": "Digital_Twin_SCADA_PID_Control",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    }
+  ]
+}
